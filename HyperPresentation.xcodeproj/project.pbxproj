@@ -7,13 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF5F76CB217AE8E200134E1A /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5F76CA217AE8E200134E1A /* Charts.framework */; };
+		FF5F76CC217AE8E200134E1A /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FF5F76CA217AE8E200134E1A /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FF742D6A217AD07600C67F46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF742D69217AD07600C67F46 /* AppDelegate.swift */; };
 		FF742D6C217AD07600C67F46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF742D6B217AD07600C67F46 /* ViewController.swift */; };
 		FF742D6E217AD07B00C67F46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF742D6D217AD07B00C67F46 /* Assets.xcassets */; };
 		FF742D71217AD07B00C67F46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF742D6F217AD07B00C67F46 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		FF5F76CD217AE8E200134E1A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FF5F76CC217AE8E200134E1A /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		FF5F76CA217AE8E200134E1A /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/Mac/Charts.framework; sourceTree = "<group>"; };
 		FF742D66217AD07600C67F46 /* HyperPresentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HyperPresentation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF742D69217AD07600C67F46 /* AppDelegate.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; tabWidth = 4; };
 		FF742D6B217AD07600C67F46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF5F76CB217AE8E200134E1A /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +55,7 @@
 		FF742D5D217AD07600C67F46 = {
 			isa = PBXGroup;
 			children = (
+				FF5F76CA217AE8E200134E1A /* Charts.framework */,
 				FF742D68217AD07600C67F46 /* HyperPresentation */,
 				FF742D67217AD07600C67F46 /* Products */,
 			);
@@ -73,6 +92,8 @@
 				FF742D62217AD07600C67F46 /* Sources */,
 				FF742D63217AD07600C67F46 /* Frameworks */,
 				FF742D64217AD07600C67F46 /* Resources */,
+				FF5F76CD217AE8E200134E1A /* Embed Frameworks */,
+				FF5F76CE217AE8EC00134E1A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -127,6 +148,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FF5F76CE217AE8EC00134E1A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/Mac/Charts.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FF742D62217AD07600C67F46 /* Sources */ = {
@@ -275,6 +317,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 7V564G2V7F;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = HyperPresentation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -294,6 +340,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 7V564G2V7F;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = HyperPresentation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
