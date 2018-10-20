@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Charts
 
 class ViewController: NSViewController {
 
