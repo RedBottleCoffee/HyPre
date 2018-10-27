@@ -6,7 +6,7 @@ export class Hypre {
   }
 
   buildAppleScript(keystroke) {
-    return `sleep 5;osascript -e '
+    return `osascript -e '
               tell application "${this.presentationSoftware}"
                 activate
                 tell application "System Events"
@@ -16,7 +16,7 @@ export class Hypre {
   }
 
   buildAppleScriptWithKeyCode(keycode) {
-    return `sleep 5;osascript -e '
+    return `osascript -e '
               tell application "${this.presentationSoftware}"
                 activate
                 tell application "System Events"
