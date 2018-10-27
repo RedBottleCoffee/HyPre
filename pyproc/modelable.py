@@ -1,20 +1,25 @@
 from keras.layers import Input, Dense
 from keras.models import Model
 from keras.layers.convolutional import Conv2D
-from keras.layers.pooling import MaxPool2D
+from keras.layers.pooling import MaxPool2D, GlobalAveragePooling2D
 from keras.layers.normalization import BatchNormalization
 from keras.optimizers import Adam
 from keras.layers.core import Dense, Activation, Dropout, Flatten
 
 class Modelable:
-    def __init__(self):
-        self.stream = None
+    def __init__(self, base=None):
+        self.stream = base
+        self.root = base
+
+    def build(self):
+        return Model(inputs=self.root, outputs=self.stream)
 
     def input(
         self,
         shape=(32, 32, 3)
     ):
         self.stream = Input(shape=shape)
+        self.root = self.root or self.stream
         return self
 
     def conv2d(
@@ -51,6 +56,15 @@ class Modelable:
             strides=strides,
             padding=padding
           ) (self.stream)
+        return self
+
+    def gavgpool2d(
+        self,
+        data_format=None
+    ):
+        self.stream = GlobalAveragePooling2D(
+            data_format=data_format
+        ) (self.stream)
         return self
 
     def flat(
