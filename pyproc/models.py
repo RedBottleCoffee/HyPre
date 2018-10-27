@@ -1,3 +1,5 @@
+from keras.applications.mobilenetv2 import MobileNetV2
+
 from modelable import Modelable
 from config import *
 
@@ -26,10 +28,21 @@ class Model:
                   .dense(256) \
                   .dropout(0.5) \
                   .dense(conf.num_classes, activation='softmax')
-        return alexnet
+
+        return alexnet.build()
 
 
 
     def build_mobilenetv2(self):
-        model = Modelable()
-        # modelable = model
+        base = MobileNetV2(weights=None,
+                           input_shape=conf.dims,
+                           include_top=False,
+                           alpha=0.35,
+                           depth_multiplier=0.5)
+        model = Modelable(base.output)
+        mobilenetv2 = model \
+                      .gavgpool2d() \
+                      .dense(1024) \
+                      .dense(conf.num_classes, activation='softmax')
+
+        return mobilenetv2.build()
