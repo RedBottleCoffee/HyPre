@@ -5,9 +5,15 @@
   "repository": "git@github.com:jphacks/FK_1802.git",
   "author": "RedBottleCoffee <rbottlecoffee@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "compile": "gulp compile"
+  },
   "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "babel": "^6.23.0",
     "electron": "^3.0.6",
     "electron-connect": "^0.6.3",
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-babel": "^8.0.0"
   }
 }
