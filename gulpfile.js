@@ -18,7 +18,7 @@ gulp.task('start', ['compile'], function() {
 });
 
 gulp.task('compile', function(){
-  return gulp.src(srcDir + '/js/**/*.{js,jsx}')
+  gulp.src(srcDir + '/js/**/*.{js,jsx}')
     .pipe(babel())
     .pipe(gulp.dest(distDir + '/js'));
 });
