@@ -15,5 +15,9 @@
     "electron-connect": "^0.6.3",
     "gulp": "^3.9.1",
     "gulp-babel": "^8.0.0"
+  },
+  "dependencies": {
+    "gulp-sass": "^4.0.2",
+    "gulp-sass-glob": "^1.0.9"
   }
 }
