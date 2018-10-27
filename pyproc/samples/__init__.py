@@ -27,8 +27,6 @@ categories = categorize(file_path_list)
 backet = {}
 
 for k, v in categories.items():
-    print(k)
-    print(v)
     spec = name_and_category(v, conf.labels.index(k))
     backet = {**backet, **spec}
 
