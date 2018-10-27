@@ -11,7 +11,7 @@ gulp.task('start', ['compile'], function() {
   electron.start('./app');
 
   gulp.watch([srcDir + '/js/**/*.js'], ['compile']);
-  gulp.watch(['./app/index.js'], electron.restart);
+  gulp.watch(['./app/index.js'], () => { electron.restart('./app') });
   gulp.watch([srcDir + '/scss/*.scss'], ['sass']);
   gulp.watch([distDir + '/css/*.css'], electron.reload);
   gulp.watch(['./app/*.html'], electron.reload);
