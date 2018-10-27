@@ -1,35 +1,30 @@
-const { app, Menu, BrowserWindow } = require('electron');
+const { app, Menu, BrowserWindow, Tray, systemPreferences } = require('electron');
+const menubar = require('menubar')
 const path = require('path');
 const url = require('url');
+
 
 let mainWindow;
 
 function createWindow() {
-    mainWindow = new BrowserWindow({ width: 800, height: 600 });
-
-    mainWindow.loadURL(url.format({
-        pathname: path.join(__dirname, 'index.html'),
-        protocol: 'file:',
-        slashes: true
-    }));
-
-    Menu.setApplicationMenu(null);
-
-    mainWindow.on('closed', () => {
-        mainWindow = null;
-    });
+  const mb = menubar({
+    icon: systemPreferences.isDarkMode() ? __dirname + '/images/icon_white.png' : __dirname + '/images/icon_black.png',
+    dir: __dirname,
+    width: 500,
+    height: 325
+  });
 }
 
 app.on('ready', createWindow);
 
 app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') {
-        app.quit();
-    }
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
 });
 
 app.on('activate', () => {
-    if (mainWindow === null) {
-        createWindow();
-    }
+  if (mainWindow === null) {
+    createWindow();
+  }
 });
