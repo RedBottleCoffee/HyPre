@@ -11,7 +11,7 @@ def categorize(file_path_list):
     for path in file_path_list:
         if 'noises' in path:
             noises_list.append(path)
-        elif 'targets' in path:
+        elif 'finger' in path:
             targets_list.append(path)
     return noises_list, targets_list
 
