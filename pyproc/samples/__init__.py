@@ -6,14 +6,12 @@ file_path_list = glob("samples/**/*")
 
 #== ディレクトリから音声をカテゴライズ
 def categorize(file_path_list):
-    noises_list = []
-    targets_list = []
+    labels = conf.labels
+    catg_dict = dict([(label.lower(), []) for label in labels])
     for path in file_path_list:
-        if 'noises' in path:
-            noises_list.append(path)
-        elif 'finger' in path:
-            targets_list.append(path)
-    return noises_list, targets_list
+        if '__' in path: continue
+        catg_dict[path.split('/')[-2]].append(path)
+    return catg_dict
 
 #== One-Hot表現生成
 def one_hot(i, size):
@@ -25,10 +23,14 @@ def name_and_category(paths, label):
 
 
 
-noises, targets = categorize(file_path_list)
+categories = categorize(file_path_list)
+backet = {}
 
-noise_set = name_and_category(noises, 0)
-target_set = name_and_category(targets, 1)
+for k, v in categories.items():
+    print(k)
+    print(v)
+    spec = name_and_category(v, conf.labels.index(k))
+    backet = {**backet, **spec}
 
 
-dataset = {**noise_set, **target_set}
+dataset = backet
