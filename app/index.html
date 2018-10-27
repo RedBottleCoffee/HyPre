@@ -12,7 +12,7 @@
 <body>
   <header>
     <div class="logo">Hypre</div>
-    <div class="close">x</div>
+    <div class="close js-close">x</div>
   </header>
 
   <div class="runButton">
@@ -29,11 +29,12 @@
       <div class="sound">
         <p>Finger snapping</p>
       </div>
-      <div class="cp_ipselect cp_sl01"><select>
+      <div class="cp_ipselect cp_sl01">
+        <select name="sound[finger_snapping]">
           <option value="" hidden>Choose</option>
-          <option value="1">next</option>
-          <option value="2">back</option>
-          <option value="3">esc</option>
+          <option value="next" selected>Next</option>
+          <option value="previous">Previous</option>
+          <option value="esc">Esc</option>
         </select>
       </div>
     </div>
@@ -43,11 +44,11 @@
         <p>Bell</p>
       </div>
       <div class="cp_ipselect cp_sl01">
-        <select>
+        <select name="sound[bell]">
           <option value="" hidden>Choose</option>
-          <option value="1">next</option>
-          <option value="2">back</option>
-          <option value="3">esc</option>
+          <option value="next">Next</option>
+          <option value="previous">Previous</option>
+          <option value="esc" selected>Esc</option>
         </select>
       </div>
     </div>
@@ -57,11 +58,11 @@
         <p>Applause</p>
       </div>
       <div class="cp_ipselect cp_sl01">
-        <select>
+        <select name="sound[applause]">
           <option value="" hidden>Choose</option>
-          <option value="1">next</option>
-          <option value="2">back</option>
-          <option value="3">esc</option>
+          <option value="next" selected>Next</option>
+          <option value="previous">Previous</option>
+          <option value="esc">Esc</option>
         </select>
       </div>
     </div>
@@ -71,11 +72,10 @@
         <p>Gong</p>
       </div>
       <div class="cp_ipselect cp_sl01">
-        <select>
-          <option value="" hidden>Choose</option>
-          <option value="1">Next()</option>
-          <option value="2">Back</option>
-          <option value="3">Esc</option>
+        <select name="sound[gong]">
+          <option value="next">Next</option>
+          <option value="previous">Previous</option>
+          <option value="esc" selected>Esc</option>
         </select>
       </div>
     </div>
