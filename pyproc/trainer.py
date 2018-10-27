@@ -14,7 +14,7 @@ alex.compile(optimizer='adam',
 data = list(dataset.items())
 shuffle(data)
 wave_data, loaded_paths, loaded_labels = load_wavs(conf, data)
-train_size = int(len(loaded_paths) * 0.8)
+train_size = int(len(loaded_paths) * 0.9)
 
 train_XX, test_XX = wave_data[:train_size], wave_data[train_size:]
 train_X, test_X = sounds_to_mels(conf, train_XX), sounds_to_mels(conf, test_XX)
