@@ -27,5 +27,5 @@ gulp.task('sass', function(){
   gulp.src(srcDir + '/scss/style.scss')
     .pipe(sassGlob())
     .pipe(sass())
-    .pipe(gulp.dest(distDir + '/css/'));
+    .pipe(gulp.dest(distDir + '/css'));
 });
