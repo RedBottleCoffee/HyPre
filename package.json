@@ -6,6 +6,8 @@
   "author": "RedBottleCoffee <rbottlecoffee@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^3.0.6"
+    "electron": "^3.0.6",
+    "electron-connect": "^0.6.3",
+    "gulp": "^3.9.1"
   }
 }
