@@ -1,7 +1,7 @@
 **/.DS_Store
 **/__pycache__
-pyproc/samples/targets
-pyproc/samples/noises
+pyproc/
+!pyproc/samples/__init__.py
 ### https://raw.github.com/github/gitignore/72190ee30bd1e2ccc233222341435adacb7a6500/Python.gitignore
 
 # Byte-compiled / optimized / DLL files
