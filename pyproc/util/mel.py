@@ -2,7 +2,7 @@ import numpy as np
 import librosa
 
 
-def _load_wave(conf, path):
+def load_wave(conf, path):
     data = librosa.load(path, sr=conf.sampling_rate)
     cut_sound = np.asarray(data[0][:conf.samples * conf.duration])
     if len(cut_sound) == conf.samples * conf.duration:
@@ -14,14 +14,14 @@ def load_wavs(conf, pathsets):
     wavs = []
     loaded_paths, loaded_labels = [], []
     for pathset in pathsets:
-        wav = _load_wave(conf, pathset[0])
+        wav = load_wave(conf, pathset[0])
         if wav is not None:
           wavs.append(wav)
           loaded_paths.append(pathset[0])
           loaded_labels.append(pathset[1])
     return wavs, loaded_paths, loaded_labels
 
-def _sound_to_mel(conf, array):
+def sound_to_mel(conf, array):
     melspectrogram = librosa.feature.melspectrogram(array,
                                                  sr=conf.sampling_rate,
                                                  n_mels=conf.n_mels,
@@ -40,7 +40,7 @@ def _sound_to_mel(conf, array):
 def sounds_to_mels(conf, sound_array):
     mels = []
     for sound in sound_array:
-        mel = _sound_to_mel(conf, sound)
+        mel = sound_to_mel(conf, sound)
         if mel is not None:
             mels.append(mel)
     return mels
