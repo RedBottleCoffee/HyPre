@@ -1,8 +1,4 @@
-from modelable import Modelable
+from config import *
+from models import Model
 
-model = Modelable()
-modelable = model        \
-            .input()     \
-            .conv2d()    \
-            .normalize() \
-            .conv2d()    \
+alex = Model().build_alexnet()
