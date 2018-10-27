@@ -1,0 +1,11 @@
+{
+  "name": "HyPre",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:jphacks/FK_1802.git",
+  "author": "RedBottleCoffee <rbottlecoffee@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^3.0.6"
+  }
+}
