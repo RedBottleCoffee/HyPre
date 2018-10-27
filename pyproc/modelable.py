@@ -108,3 +108,43 @@ class Modelable:
             gamma_constraint=gamma_constraint
         ) (self.stream)
         return self
+
+    def dense(
+        self,
+        units,
+        activation='relu',
+        use_bias=True,
+        kernel_initializer='glorot_uniform',
+        bias_initializer='zeros',
+        kernel_regularizer=None,
+        bias_regularizer=None,
+        activity_regularizer=None,
+        kernel_constraint=None,
+        bias_constraint=None
+     ):
+        self.stream = Dense(
+            units=units,
+            activation=activation,
+            use_bias=use_bias,
+            kernel_initializer=kernel_initializer,
+            bias_initializer=bias_initializer,
+            kernel_regularizer=kernel_regularizer,
+            bias_regularizer=bias_regularizer,
+            activity_regularizer=activity_regularizer,
+            kernel_constraint=kernel_constraint,
+            bias_constraint=bias_constraint
+        ) (self.stream)
+        return self
+
+    def dropout(
+        self,
+        rate=0.5,
+        noise_shape=None,
+        seed=None
+    ):
+        self.stream = Dropout(
+            rate=rate,
+            noise_shape=noise_shape,
+            seed=seed
+        ) (self.stream)
+        return self
