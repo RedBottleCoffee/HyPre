@@ -1,0 +1,21 @@
+header {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  background-color: #000000;
+  .logo {
+    font-size: 30px;
+    color: yellow;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .close {
+    color: white;
+    font-size: 15px;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+  }
+}
