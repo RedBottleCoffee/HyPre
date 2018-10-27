@@ -14,7 +14,7 @@ conf.n_mels = 128
 conf.n_fft = conf.n_mels * 20
 conf.model = 'mobilenetv2' # 'alexnet'
 conf.samples = conf.sampling_rate * conf.duration
-conf.num_classes = 2
+conf.num_classes = 4
 
 #== for recognizer
 conf.rt_process_count = 1
@@ -37,4 +37,4 @@ conf.dims = (conf.n_mels, 1 + int(np.floor(conf.samples/conf.hop_length)), 1)
 conf.rt_chunk_samples = conf.sampling_rate // conf.rt_oversamples
 conf.mels_onestep_samples = conf.rt_chunk_samples * conf.rt_process_count
 conf.mels_convert_samples = conf.samples + conf.mels_onestep_samples
-conf.labels = ['Noise', 'Finger', 'Applause', 'Gong']
+conf.labels = ['noise', 'finger', 'applause', 'gong']
