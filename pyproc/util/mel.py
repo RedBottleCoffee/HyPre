@@ -1,23 +1,10 @@
 import numpy as np
 import librosa
-import wavio
 
 
-def load_wave_first(path):
-    w = wavio.read(fn_in)
-    fs = w.rate
-    bit = 8 * w.sampwidth
-    data = w.data.T
-    data = data / float( 2**(bit-1) )
-    return data[0]
-
-def load_wave_all(path):
-    w = wavio.read(fn_in)
-    fs = w.rate
-    bit = 8 * w.sampwidth
-    data = w.data.T
-    data = data / float( 2**(bit-1) )
-    return data
+def load_wave(conf, path):
+    data = librosa.load(path, sr=conf.sampling_rate)
+    return np.asarray(data[0][:conf.samples * conf.duration])
 
 def sound_to_mels(conf, array):
     melspectrogram = librosa.feature.melspectrogram(array,
