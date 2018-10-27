@@ -1,0 +1,37 @@
+.configs {
+    margin: 10px 15px 0px 15px;
+}
+
+.action_config {
+    width: 100%;
+    display: table;
+    margin-top: 5px;
+    div {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .sound {
+        text-align: left;
+        p {
+            font-size: 15px;
+        }
+    }
+}
+
+.application_config {
+    width: 100%;
+    display: table;
+    margin-top: 27.5px;
+    div {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .application {
+        text-align: left;
+        p {
+            font-size: 15px;
+        }
+    }
+}
