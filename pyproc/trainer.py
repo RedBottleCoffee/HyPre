@@ -20,4 +20,6 @@ train_XX, test_XX = wave_data[:train_size], wave_data[train_size:]
 train_X, test_X = sounds_to_mels(conf, train_XX), sounds_to_mels(conf, test_XX)
 train_Y, test_Y = loaded_labels[:train_size], loaded_labels[train_size:]
 
-alex.fit([train_X], [train_Y], epochs=500, batch_size=conf.batch_size, verbose=1, validation_data=([test_X], [test_Y]))
+alex.fit([train_X], [train_Y], epochs=conf.epochs, batch_size=conf.batch_size, verbose=conf.verbose, validation_data=([test_X], [test_Y]))
+
+alex.save("model/alexnet.h5")
