@@ -18,7 +18,6 @@ document.querySelectorAll('[name^=sound]').forEach((elem) => {
 
 
 const pyproc = new Pyproc('./pyproc/predicator.py')
-let lastLabel = ''
 pyproc.asyncRun((data) => {
   var label = data.toString().toLowerCase().replace(/\r?\n/g,"");
   console.log(label)
@@ -37,12 +36,15 @@ document.querySelector('.js-close').addEventListener('click', () => {
 // 音声のアクション設定
 document.querySelectorAll('[name^=sound]').forEach((elem) => {
   elem.addEventListener('change', function () {
-    console.log(camelCase(this.name))
-
     var sound = this.name.match(/finger|bell|applause|gong/)
     soundSetting.param(camelCase(sound.toString()), this.value)
   })
 })
+
+document.querySelector('[name=presentationSoftware]').addEventListener('change', function() {
+  hyper.presentationSoftware = this.value
+})
+
 
 // Utility
 function camelCase(str){

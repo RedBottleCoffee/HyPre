@@ -34,6 +34,6 @@ export class Hypre {
   }
 
   esc() {
-    exec(this.buildAppleScriptWithKeyCode('53'))
+    exec(this.buildAppleScript('"b"'))
   }
 }
