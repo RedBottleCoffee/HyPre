@@ -54,7 +54,7 @@ def main_process(model):
           probs = model.predict(reshaped)
           label = parse_to_label(probs)
           if not label in predicted and label is not 'noise':
-              print(label)
+              print(label, flush=True)
           predicted.append(label)
           predicted.pop(0)
 
