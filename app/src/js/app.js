@@ -19,9 +19,9 @@ document.querySelectorAll('[name^=sound]').forEach((elem) => {
 })
 
 
-var pyproc = new Pyproc('printman.py')
+var pyproc = new Pyproc('./pyproc/predicator.py')
 pyproc.asyncRun((data) => {
-
+  console.log(data.toString())
 })
 
 // 閉じるボタン押したときの処理
