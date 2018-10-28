@@ -34,18 +34,22 @@
   * TensorFlow
   * Keras
   * librosa
+  * numpy
 #### デバイス
 * macOS
 
 ### 研究内容・事前開発プロダクト（任意）
 ご自身やチームの研究内容や、事前に持ち込みをしたプロダクトがある場合は、こちらに実績なども含め記載をして下さい。
 
-*  
-* 
+*
+*
 
 ### 独自開発技術（Hack Dayで開発したもの）
 #### 2日間に開発した独自の機能・技術
-* 独自で開発したものの内容をこちらに記載してください
-* 特に力を入れた部分をファイルリンク、またはcommit_idを記載してください（任意）
+##### 注力した点
+* [モナドを利用したDeep Learningモデル構築](https://github.com/jphacks/FK_1802/blob/master/pyproc/models.py)
+* [Kerasモナド](https://github.com/jphacks/FK_1802/blob/master/pyproc/keras_monad.py)
+* [メタプロを利用したコンフィグ管理](https://github.com/jphacks/FK_1802/blob/master/pyproc/config/__init__.py)
 
+##### 行ったこと
 * この二日間で音を認識するためのモデルの構築から学習まで行った。
