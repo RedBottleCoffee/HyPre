@@ -3,7 +3,6 @@ const menubar = require('menubar')
 const path = require('path');
 const url = require('url');
 
-
 let mainWindow;
 
 function createWindow() {
