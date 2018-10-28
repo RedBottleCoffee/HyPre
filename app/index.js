@@ -2,7 +2,7 @@ const { app, Menu, BrowserWindow, Tray, systemPreferences } = require('electron'
 const menubar = require('menubar')
 const path = require('path');
 const url = require('url');
-
+const zerorpc = require('zerorpc')
 
 let mainWindow;
 
@@ -28,3 +28,11 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
+var server = new zerorpc.Server({
+  hello: function(name, reply) {
+      reply(null, "Hello, " + name);
+  }
+});
+
+server.bind("tcp://0.0.0.0:4242");
