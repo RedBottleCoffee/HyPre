@@ -19,7 +19,6 @@
   "dependencies": {
     "gulp-sass": "^4.0.2",
     "gulp-sass-glob": "^1.0.9",
-    "menubar": "^5.2.3",
-    "zerorpc": "^0.9.8"
+    "menubar": "^5.2.3"
   }
 }
