@@ -37,7 +37,7 @@ def restore_model():
 def parse_to_label(probs):
     result = np.argmax(probs)
     if result != 0:
-        print(conf.labels[result])
+        print(conf.labels[result], flush=True)
 
 raw_audio_buffer = []
 def main_process(model):
