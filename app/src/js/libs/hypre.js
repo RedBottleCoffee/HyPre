@@ -33,7 +33,7 @@ export class Hypre {
     exec(this.buildAppleScript('(ASCII character 28)'))
   }
 
-  exit() {
+  esc() {
     exec(this.buildAppleScriptWithKeyCode('53'))
   }
 }
