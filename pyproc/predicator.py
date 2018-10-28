@@ -38,7 +38,7 @@ def parse_to_label(probs):
     result = np.argmax(probs)
     return conf.labels[result]
 
-predicted = ['noise'] * 4
+predicted = ['noise'] * 6
 raw_audio_buffer = []
 def main_process(model):
       global raw_audio_buffer

@@ -6,7 +6,7 @@ from keras.layers.normalization import BatchNormalization
 from keras.optimizers import Adam
 from keras.layers.core import Dense, Activation, Dropout, Flatten
 
-class Modelable:
+class KerasMonad:
     def __init__(self, base=None):
         self.stream = base
         self.root = base
@@ -43,7 +43,7 @@ class Modelable:
           ) (self.stream)
         return self
 
-    def mpool2d(self,
+    def max_pooling2d(self,
                 pool_size=(2, 2),
                 strides=(2, 2),
                 padding='same'):
@@ -55,7 +55,7 @@ class Modelable:
           ) (self.stream)
         return self
 
-    def gavgpool2d(self,
+    def global_avg_pooling2d(self,
                    data_format=None):
 
         self.stream = GlobalAveragePooling2D(
@@ -63,24 +63,8 @@ class Modelable:
         ) (self.stream)
         return self
 
-    def flat(self):
+    def flatten(self):
         self.stream = Flatten() (self.stream)
-        return self
-
-    def fc(self,
-           units=10,
-           activation='relu',
-           use_bias=True,
-           kernel_initializer='glorot_uniform',
-           bias_initializer='zeros'):
-
-        self.stream = Dence(
-            units=units,
-            activation=activation,
-            use_bias=use_bias,
-            kernel_initializer=kernel_initializer,
-            bias_initializer=bias_initializer
-        ) (self.stream)
         return self
 
     def normalize(self,
