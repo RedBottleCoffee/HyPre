@@ -36,9 +36,9 @@ def restore_model():
 
 def parse_to_label(probs):
     result = np.argmax(probs)
-    if result != 0:
-        print(conf.labels[result], flush=True)
+    return conf.labels[result]
 
+predicted = ['noise'] * 4
 raw_audio_buffer = []
 def main_process(model):
       global raw_audio_buffer
@@ -53,7 +53,11 @@ def main_process(model):
       if melspectrogram is not None:
           reshaped = np.reshape(melspectrogram, (1, 128, 128, 1))
           probs = model.predict(reshaped)
-          parse_to_label(probs)
+          label = parse_to_label(probs)
+          if not label in predicted and label is not 'noise':
+              print(label, flush=True)
+          predicted.append(label)
+          predicted.pop(0)
 
 if __name__ == '__main__':
     model = restore_model()

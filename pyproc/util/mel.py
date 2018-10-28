@@ -4,7 +4,7 @@ import librosa
 
 def load_wave(conf, path):
     data = librosa.load(path, sr=conf.sampling_rate)
-    cut_sound = np.asarray(data[0][:conf.samples * conf.duration])
+    cut_sound = np.asarray(data[0][:conf.sampling_rate * conf.duration])
     if len(cut_sound) == conf.samples * conf.duration:
         return cut_sound
     else:
