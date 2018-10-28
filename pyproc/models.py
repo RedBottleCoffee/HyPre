@@ -9,24 +9,24 @@ class Model:
 
     def build_alexnet(self):
         model = Modelable()
-        alexnet = model                           \
-                  .input(conf.dims)               \
-                  .conv2d(48, 11, strides=(2, 3)) \
-                  .mpool2d(3, strides=(1, 2))     \
-                  .normalize()                    \
-                  .conv2d(128, 5, strides=(2, 3)) \
-                  .mpool2d(3, strides=2)          \
-                  .normalize()                    \
-                  .conv2d(192, 3, strides=(1, 2)) \
-                  .conv2d(192, 3, strides=(1, 1)) \
-                  .conv2d(128, 3, strides=(1, 1)) \
-                  .mpool2d(3, strides=(1, 2))     \
-                  .normalize()                    \
-                  .flat()                         \
-                  .dense(256)                     \
-                  .dropout(0.5)                   \
-                  .dense(256)                     \
-                  .dropout(0.5)                   \
+        alexnet = model                                 \
+                  .input(conf.dims)                     \
+                  .conv2d(48, 11,   strides=(2, 3))     \
+                  .max_pooling2d(3, strides=(1, 2))     \
+                  .normalize()                          \
+                  .conv2d(128, 5,   strides=(2, 3))     \
+                  .max_pooling2d(3, strides=2)          \
+                  .normalize()                          \
+                  .conv2d(192, 3,   strides=(1, 2))     \
+                  .conv2d(192, 3,   strides=(1, 1))     \
+                  .conv2d(128, 3,   strides=(1, 1))     \
+                  .max_pooling2d(3, strides=(1, 2))     \
+                  .normalize()                          \
+                  .flatten()                            \
+                  .dense(256)                           \
+                  .dropout(0.5)                         \
+                  .dense(256)                           \
+                  .dropout(0.5)                         \
                   .dense(conf.num_classes, activation='softmax')
 
         return alexnet.build()
@@ -40,9 +40,9 @@ class Model:
                            alpha=0.35,
                            depth_multiplier=0.5)
         model = Modelable(base.output)
-        mobilenetv2 = model \
-                      .gavgpool2d() \
-                      .dense(1024) \
+        mobilenetv2 = model                   \
+                      .global_avg_pooling2d() \
+                      .dense(1024)            \
                       .dense(conf.num_classes, activation='softmax')
 
         return mobilenetv2.build()
