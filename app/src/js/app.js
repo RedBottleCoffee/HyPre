@@ -12,16 +12,21 @@ const soundSetting = new SoundSetting()
 
 // Initilize
 document.querySelectorAll('[name^=sound]').forEach((elem) => {
-  console.log(elem.name)
-
-  var sound = elem.name.match(/finger_snapping|bell|applause|gong/)
+  var sound = elem.name.match(/finger|bell|applause|gong/)
   soundSetting.param(camelCase(sound.toString()), elem.value)
 })
 
 
-var pyproc = new Pyproc('./pyproc/predicator.py')
+const pyproc = new Pyproc('./pyproc/predicator.py')
+let lastLabel = ''
 pyproc.asyncRun((data) => {
-  console.log(data.toString())
+  var label = data.toString().toLowerCase().replace(/\r?\n/g,"");
+  console.log(label)
+  if(soundSetting.usableParams.includes(label)){
+    const action = eval(`soundSetting.params.${label}`)
+    console.log(action)
+    eval(`hyper.${action}()`)
+  }
 })
 
 // 閉じるボタン押したときの処理
@@ -32,9 +37,9 @@ document.querySelector('.js-close').addEventListener('click', () => {
 // 音声のアクション設定
 document.querySelectorAll('[name^=sound]').forEach((elem) => {
   elem.addEventListener('change', function () {
-    console.log(this.name)
+    console.log(camelCase(this.name))
 
-    var sound = this.name.match(/finger_snapping|bell|applause|gong/)
+    var sound = this.name.match(/finger|bell|applause|gong/)
     soundSetting.param(camelCase(sound.toString()), this.value)
   })
 })
