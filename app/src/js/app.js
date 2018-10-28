@@ -18,7 +18,6 @@ document.querySelectorAll('[name^=sound]').forEach((elem) => {
 
 
 const pyproc = new Pyproc('./pyproc/predicator.py')
-let lastLabel = ''
 pyproc.asyncRun((data) => {
   var label = data.toString().toLowerCase().replace(/\r?\n/g,"");
   console.log(label)
