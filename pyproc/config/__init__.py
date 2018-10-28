@@ -13,7 +13,7 @@ conf.fmax = conf.sampling_rate // 2
 conf.n_mels = 128
 conf.n_fft = conf.n_mels * 20
 conf.samples = conf.sampling_rate * conf.duration
-conf.num_classes = 2
+conf.num_classes = 3
 
 #== for recognizer
 conf.rt_process_count = 1
