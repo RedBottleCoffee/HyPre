@@ -8,5 +8,6 @@ export class Pyproc {
   async asyncRun(callback) {
     const process = spawn('python', [self.path])
     process.stdout.on('data', callback)
+    process.stderr.on('data', callback)
   }
 }

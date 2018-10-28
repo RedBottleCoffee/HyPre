@@ -1,7 +1,7 @@
 export class SoundSetting {
-  constructor(params = {'fingerSnapping': 'next', 'bell': 'esc', 'applause': 'next', 'gong': 'esc'}) {
-    this.defaultParams = {'fingerSnapping': 'next', 'bell': 'esc', 'applause': 'next', 'gong': 'esc'}
-    this.usableParams =  ['fingerSnapping', 'bell', 'applause', 'gong']
+  constructor(params = {'finger': 'next', 'bell': 'esc', 'applause': 'next', 'gong': 'esc'}) {
+    this.defaultParams = {'finger': 'next', 'bell': 'esc', 'applause': 'next', 'gong': 'esc'}
+    this.usableParams =  ['finger', 'bell', 'applause', 'gong']
 
     this.params = this.defaultParams
     this.usableParams.forEach((key) => {

@@ -1,6 +1,7 @@
 import pyaudio
 import sys
 import array
+import os
 import numpy as np
 
 from config import *
@@ -31,12 +32,12 @@ def gen_stream():
     return stream
 
 def restore_model():
-    return load_model('model/alexnet.h5')
+    return load_model(os.path.dirname(os.path.abspath(__file__)) + '/model/alexnet.h5')
 
 def parse_to_label(probs):
     result = np.argmax(probs)
     if result != 0:
-        print(conf.labels[result])
+        print(conf.labels[result], flush=True)
 
 raw_audio_buffer = []
 def main_process(model):
