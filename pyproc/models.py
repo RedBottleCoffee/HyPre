@@ -1,6 +1,6 @@
 from keras.applications.mobilenetv2 import MobileNetV2
 
-from modelable import Modelable
+from keras_monad import KerasMonad
 from config import *
 
 class Model:
@@ -8,7 +8,7 @@ class Model:
         pass
 
     def build_alexnet(self):
-        model = Modelable()
+        model = KerasMonad()
         alexnet = model                                 \
                   .input(conf.dims)                     \
                   .conv2d(48, 11,   strides=(2, 3))     \
@@ -39,7 +39,7 @@ class Model:
                            include_top=False,
                            alpha=0.35,
                            depth_multiplier=0.5)
-        model = Modelable(base.output)
+        model = KerasMonad(base.output)
         mobilenetv2 = model                   \
                       .global_avg_pooling2d() \
                       .dense(1024)            \

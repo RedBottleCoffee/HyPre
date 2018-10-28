@@ -6,7 +6,7 @@ from keras.layers.normalization import BatchNormalization
 from keras.optimizers import Adam
 from keras.layers.core import Dense, Activation, Dropout, Flatten
 
-class Modelable:
+class KerasMonad:
     def __init__(self, base=None):
         self.stream = base
         self.root = base
