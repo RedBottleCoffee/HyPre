@@ -15,7 +15,7 @@ class Model:
                   .max_pooling2d(3, strides=(1, 2))     \
                   .normalize()                          \
                   .conv2d(128, 5,   strides=(2, 3))     \
-                  .max_pooling2d(3, strides=2)          \
+                  .max_pooling2d(3, strides=(2, 1))     \
                   .normalize()                          \
                   .conv2d(192, 3,   strides=(1, 2))     \
                   .conv2d(192, 3,   strides=(1, 1))     \
