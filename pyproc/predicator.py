@@ -11,7 +11,7 @@ from queue import Queue
 from keras.models import load_model
 
 audio = pyaudio.PyAudio()
-history = Queue(maxsize=100)
+history = Queue(maxsize=30)
 
 def callback(in_data, frame_count, time_info, status):
     wav = array.array('h', in_data)

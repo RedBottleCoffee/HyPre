@@ -22,7 +22,7 @@ conf.rt_oversamples = 10
 #== for trainer
 conf.batch_size = 32
 conf.learning_rate = 0.0001
-conf.epochs = 40
+conf.epochs = 70
 conf.verbose = 2
 conf.dims = (conf.n_mels, 1 + int(np.floor(conf.samples/conf.hop_length)), 1)
 conf.rt_chunk_samples = conf.sampling_rate // conf.rt_oversamples
