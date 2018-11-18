@@ -11,7 +11,7 @@ from queue import Queue
 from keras.models import load_model
 
 audio = pyaudio.PyAudio()
-history = Queue(maxsize=100)
+history = Queue(maxsize=50)
 
 def callback(in_data, frame_count, time_info, status):
     wav = array.array('h', in_data)
@@ -65,7 +65,7 @@ if __name__ == '__main__':
     stream.start_stream()
     while stream.is_active():
         main_process(model)
-        sleep(0.001)
+        sleep(0.01)
     stream.stop_stream()
     stream.close()
     audio.terminate()
